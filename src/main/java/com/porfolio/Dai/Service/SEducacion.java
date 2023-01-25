@@ -23,7 +23,7 @@ public class SEducacion {
     @Autowired
     REducacion rEducacion;
     
-    public List<Educacion> lis(){
+    public List<Educacion> list(){
         return rEducacion.findAll();
     }
     public Optional<Educacion> getOne(int id){
