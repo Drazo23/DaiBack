@@ -15,13 +15,23 @@ public class dtoEducacion {
     private String nombreE;
     @NotBlank
     private String descripcionE;
+    private String fechaFinalizacion;
 
     public dtoEducacion() {
     }
 
-    public dtoEducacion(String nombreE, String descripcionE) {
+    public String getFechaFinalizacion() {
+        return fechaFinalizacion;
+    }
+
+    public void setFechaFinalizacion(String fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
+    }
+
+    public dtoEducacion(String nombreE, String descripcionE, String fechaFinalizacion) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.fechaFinalizacion = fechaFinalizacion;
     }
 
     public String getNombreE() {

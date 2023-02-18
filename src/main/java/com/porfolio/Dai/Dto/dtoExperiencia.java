@@ -11,22 +11,32 @@ import javax.validation.constraints.NotBlank;
  * @author User
  */
 public class dtoExperiencia {
+
     @NotBlank
     private String nombreE;
     @NotBlank
     private String descripcionE;
-    
-    //constructores
+    @NotBlank
+    private String periodo;
 
+    //constructores
     public dtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreE, String descripcionE) {
+    public dtoExperiencia(String nombreE, String descripcionE, String periodo) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.periodo = periodo;
     }
-    
+
     //Getter y Setter
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
 
     public String getNombreE() {
         return nombreE;
@@ -43,5 +53,5 @@ public class dtoExperiencia {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
-    
+
 }

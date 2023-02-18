@@ -12,13 +12,33 @@ public class dtoProyectos {
     private String nombreP;
     @NotBlank
     private String descripcionP;
+    @NotBlank
+    private String url;
+    private String year;
 
     public dtoProyectos() {
     }
 
-    public dtoProyectos(String nombreP, String descripcionP) {
+    public dtoProyectos(String nombreP, String descripcionP, String url) {
+        this.url = url;
         this.nombreP = nombreP;
         this.descripcionP = descripcionP;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getNombreP() {

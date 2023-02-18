@@ -19,13 +19,23 @@ public class Educacion {
     private int id;
     private String nombreE;
     private String descripcionE;
+    private String fechaFinalizacion;
+
+    public String getFechaFinalizacion() {
+        return fechaFinalizacion;
+    }
+
+    public void setFechaFinalizacion(String fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
+    }
 
     public Educacion() {
     }
 
-    public Educacion(String nombreE, String descripcionE) {
+    public Educacion(String nombreE, String descripcionE, String fechaFinalizacion) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.fechaFinalizacion = fechaFinalizacion;
     }
 
     public int getId() {
