@@ -20,17 +20,25 @@ public class dtoPersona {
     private String descripcion;
     @NotBlank
     private String img;
+    private String titulo;
+
 
     public dtoPersona() {
     }
 
-    public dtoPersona(String nombre, String apellido, String descripcion, String img) {
+    public dtoPersona(String nombre, String apellido, String descripcion, String img, String titulo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
         this.img = img;
+        this.titulo = titulo;
     }
-
+    public String getTitulo() {
+        return titulo;
+    }
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
     public String getNombre() {
         return nombre;
     }

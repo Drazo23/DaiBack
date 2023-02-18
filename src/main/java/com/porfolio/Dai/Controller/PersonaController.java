@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,19 +49,18 @@ public class PersonaController {
         personaService.delete(id);
         return new ResponseEntity(new Mensaje("Educacion eliminada"), HttpStatus.OK);
     }
-    
+    */
      @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion){
-        if(StringUtils.isBlank(dtoeducacion.getNombreE()))
+    public ResponseEntity<?> create(@RequestBody dtoPersona persona){
+        if(StringUtils.isBlank(persona.getNombre()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if(personaService.existsByNombreE(dtoeducacion.getNombreE()))
+        if(personaService.existsByNombre(persona.getNombre()))
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
+        Persona nuevaPersona = new Persona(persona.getNombre(), persona.getApellido(), persona.getDescripcion(), persona.getImg(), persona.getTitulo());
+        personaService.save(nuevaPersona);
         
-        Educacion educacion = new Educacion(dtoeducacion.getNombreE(), dtoeducacion.getDescripcionE());
-        personaService.save(educacion);
-        
-        return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);
-    }*/
+        return new ResponseEntity(new Mensaje("Persona creada"), HttpStatus.OK);
+    }
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoPersona dtopersona) {
         if (!personaService.existsById(id)) {
@@ -80,6 +80,7 @@ public class PersonaController {
         persona.setApellido(dtopersona.getApellido());
         persona.setDescripcion((dtopersona.getDescripcion()));
         persona.setImg(dtopersona.getImg());
+        persona.setTitulo(dtopersona.getTitulo());
 
         personaService.save(persona);
         return new ResponseEntity(new Mensaje("Persona actualizada"), HttpStatus.OK);
