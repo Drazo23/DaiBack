@@ -11,5 +11,4 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 FROM amazoncorretto:19
 COPY --from=build /home/app/target/Dai-0.0.1-SNAPSHOT.jar /usr/local/lib/dai.jar
-EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/dai.jar"]
